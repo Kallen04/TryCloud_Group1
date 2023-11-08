@@ -35,4 +35,8 @@ public class LoginStepDefs {
         loginPage.login(ConfigurationReader.getProperty("employee_username"), ConfigurationReader.getProperty("employee_password"));
     }
 
+    @When("user enters the username {string} and password {string}")
+    public void user_enters_the_username_and_password(String username, String password) {
+        loginPage.login(ConfigurationReader.getProperty(username), ConfigurationReader.getProperty(password));
+    }
 }
