@@ -3,9 +3,9 @@ Feature: Default
 
 	Background:
 		#@B30G3-175
-		  Given the user is on the login page
-		  When user enters the user information
-		  Then user should be able to login
+		Given the user is on the login page
+		When user enters the username "employee_username" and password "employee_password"
+		Then user should be able to login
 		
 
 	#{color:#de350b}*User Story :*{color}
@@ -87,6 +87,6 @@ Feature: Default
 		And user should see below status options
 		|Online|
 		|Away|
-		|Do not disturb|
-		|Invisible|
+		|Do not disturb\nMute all notifications|
+		|Invisible\nAppear offline|
 		Then user should be able to select any option
