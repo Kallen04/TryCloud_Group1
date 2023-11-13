@@ -5,7 +5,7 @@ Feature: Delete/Restore files
     When user enters the user information
     Then user should be able to login
 
-    When user clicks on the "Files Module"
+    When user clicks on the "Files" Module
     And user clicks on the Deleted files tab
 
 
