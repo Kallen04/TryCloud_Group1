@@ -44,9 +44,7 @@ public class US01_DashboardModification_StepDef {
     @When("user clicks customize button")
     public void user_clicks_customize_button() {
         dashboardPage_ka.customizeButton.click();
-
     }
-
     @When("user sees below widgets")
     public void user_sees_below_widgets(List<String> allExpectedWidgets) {
         List<String> allActualWidgets = new ArrayList<>();
@@ -54,7 +52,6 @@ public class US01_DashboardModification_StepDef {
             BrowserUtils.waitForVisibility(eachWidget, 20);
             allActualWidgets.add(eachWidget.getText());
         }
-
         Assert.assertTrue(allExpectedWidgets.containsAll(allActualWidgets));
     }
 
@@ -74,7 +71,6 @@ public class US01_DashboardModification_StepDef {
     public void user_clicks_set_status_option() {
         dashboardPage_ka.statusSelection.click();
     }
-
     @When("user should see below status options")
     public void user_should_see_below_status_options(List<String> allExpectedStatusOptions) {
         List<String> allActualStatusOptions = new ArrayList<>();
@@ -82,26 +78,18 @@ public class US01_DashboardModification_StepDef {
             BrowserUtils.waitForVisibility(eachStatusOption, 20);
             allActualStatusOptions.add(eachStatusOption.getText());
         }
-
         Assert.assertEquals(allExpectedStatusOptions, allActualStatusOptions);
-
     }
-
     @Then("user should be able to select any option")
     public void user_should_be_able_to_select_any_option() {
         int numOfStatuses = dashboardPage_ka.allActualStatusOptionsWE.size();
 
         for (int i = 0; i < numOfStatuses; i++) {
             dashboardPage_ka.allActualStatusOptionsWE.get(i).click();
-
            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(30));
            wait.until(ExpectedConditions.elementSelectionStateToBe(dashboardPage_ka.allRadioButtons.get(i),true));
-
             Assert.assertTrue(dashboardPage_ka.allRadioButtons.get(i).isSelected());
-
         }
-
-
     }
 }
 
